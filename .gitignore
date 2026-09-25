@@ -1,0 +1,22 @@
+# Data
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Secrets
+.env
+
+# Model artifacts
+models/*.pkl
+models/*.joblib
