@@ -1,22 +1,52 @@
-# Data
-data/raw/*
-!data/raw/.gitkeep
-data/processed/*
+# macOS
+.DS_Store
 
 # Python
-.venv/
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
 
 # Jupyter
 .ipynb_checkpoints/
 
-# macOS
-.DS_Store
-
-# Secrets
+# Environment / secrets
 .env
+.env.*
+*.pem
+*.key
+
+# IDE
+.vscode/
+.idea/
+
+# Raw source data
+data/raw/*
+!data/raw/.gitkeep
+
+# Generated behavioral source data
+data/source/*
+!data/source/.gitkeep
+
+# Processed/intermediate data
+data/processed/*
+!data/processed/.gitkeep
+
+# Private abuse-generation logic
+private/
 
 # Model artifacts
-models/*.pkl
-models/*.joblib
+models/*
+!models/.gitkeep
+
+# Logs / temporary files
+logs/
+tmp/
+*.log
+
+# Generated validation reports
+reports/*.json
