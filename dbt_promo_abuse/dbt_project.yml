@@ -15,6 +15,7 @@ clean-targets:
 
 models:
   alibaba_promo_abuse:
+
     staging:
       +materialized: view
       +schema: staging
@@ -22,3 +23,11 @@ models:
     canonical:
       +materialized: table
       +schema: canonical
+
+    daily:
+      +materialized: table
+      +schema: daily
+
+    features:
+      +materialized: table
+      +schema: features

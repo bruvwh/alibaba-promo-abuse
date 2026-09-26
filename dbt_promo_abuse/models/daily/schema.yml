@@ -1,0 +1,62 @@
+version: 2
+
+models:
+
+  - name: offline_user_daily
+    description: >
+      Daily offline behavioral aggregates at
+      user_id + activity_date grain.
+
+    columns:
+
+      - name: user_id
+        data_tests:
+          - not_null
+
+      - name: activity_date
+        data_tests:
+          - not_null
+
+      - name: total_events
+        data_tests:
+          - not_null
+
+      - name: coupon_receipts
+        data_tests:
+          - not_null
+
+      - name: purchases
+        data_tests:
+          - not_null
+
+
+  - name: online_user_daily
+    description: >
+      Daily online behavioral aggregates at
+      user_id + activity_date grain.
+
+    columns:
+
+      - name: user_id
+        data_tests:
+          - not_null
+
+      - name: activity_date
+        data_tests:
+          - not_null
+
+      - name: total_events
+        data_tests:
+          - not_null
+
+      - name: clicks
+        data_tests:
+          - not_null
+
+      - name: purchases
+        data_tests:
+          - not_null
+
+      - name: coupon_receipts
+        data_tests:
+          - not_null

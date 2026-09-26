@@ -1,0 +1,35 @@
+version: 2
+
+models:
+
+  - name: user_scoring_population
+    description: >
+      Weekly eligible user scoring population.
+      One row represents one user at one
+      prediction date.
+
+    columns:
+
+      - name: user_id
+        data_tests:
+          - not_null
+
+      - name: prediction_date
+        data_tests:
+          - not_null
+
+      - name: history_start_date
+        data_tests:
+          - not_null
+
+      - name: history_end_date
+        data_tests:
+          - not_null
+
+      - name: eligibility_event_count_30d
+        data_tests:
+          - not_null
+
+      - name: eligibility_coupon_receipts_30d
+        data_tests:
+          - not_null
