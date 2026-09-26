@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: promo_abuse_raw
+    database: alibaba-promo-abuse-1790454859
+    schema: promo_abuse_raw
+
+    tables:
+      - name: offline_events
+      - name: online_events
+      - name: abuse_cases

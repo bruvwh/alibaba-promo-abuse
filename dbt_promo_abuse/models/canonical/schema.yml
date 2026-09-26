@@ -1,0 +1,77 @@
+version: 2
+
+models:
+
+  - name: fct_offline_events
+    description: >
+      Atomic offline behavioral events derived
+      from Alibaba O2O source records.
+
+    columns:
+
+      - name: user_id
+        data_tests:
+          - not_null
+
+      - name: merchant_id
+        data_tests:
+          - not_null
+
+      - name: event_date
+        data_tests:
+          - not_null
+
+      - name: event_type
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - coupon_received
+                  - purchase
+
+      - name: channel
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - offline
+
+
+  - name: fct_online_events
+    description: >
+      Atomic online click, purchase, and
+      coupon-receipt events.
+
+    columns:
+
+      - name: user_id
+        data_tests:
+          - not_null
+
+      - name: merchant_id
+        data_tests:
+          - not_null
+
+      - name: event_date
+        data_tests:
+          - not_null
+
+      - name: event_type
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - click
+                  - purchase
+                  - coupon_received
+
+      - name: channel
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - online

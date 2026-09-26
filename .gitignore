@@ -50,3 +50,10 @@ tmp/
 
 # Generated validation reports
 reports/*.json
+
+# dbt
+.dbt-venv/
+dbt_promo_abuse/profiles.yml
+dbt_promo_abuse/target/
+dbt_promo_abuse/logs/
+dbt_promo_abuse/dbt_packages/

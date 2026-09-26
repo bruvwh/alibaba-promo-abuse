@@ -1,0 +1,63 @@
+version: 2
+
+models:
+  - name: stg_offline_events
+    columns:
+      - name: user_id
+        data_tests:
+          - not_null
+
+      - name: merchant_id
+        data_tests:
+          - not_null
+
+  - name: stg_online_events
+    columns:
+      - name: user_id
+        data_tests:
+          - not_null
+
+      - name: merchant_id
+        data_tests:
+          - not_null
+
+      - name: action_code
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1, 2]
+                quote: false
+
+  - name: stg_abuse_cases
+    columns:
+      - name: episode_id
+        data_tests:
+          - not_null
+          - unique
+
+      - name: user_id
+        data_tests:
+          - not_null
+
+      - name: channel
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - offline
+                  - online
+                  - both
+
+      - name: abuse_start_date
+        data_tests:
+          - not_null
+
+      - name: abuse_end_date
+        data_tests:
+          - not_null
+
+      - name: confirmed_date
+        data_tests:
+          - not_null
