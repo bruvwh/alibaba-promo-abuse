@@ -33,3 +33,62 @@ models:
       - name: eligibility_coupon_receipts_30d
         data_tests:
           - not_null
+
+  - name: user_behavior_features
+    description: >
+      Initial historical behavioral predictors, one row per eligible user-week.
+      Features use [prediction_date - 30 days, prediction_date).
+      Missing recency means no relevant event; zero-denominator ratios remain null.
+      No labels, episode attributes, or generation metadata are included.
+    columns:
+      - name: user_id
+        data_tests:
+          - not_null
+      - name: prediction_date
+        data_tests:
+          - not_null
+      - name: both_click_redemption_accelerating
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+              quote: false
+
+
+  - name: user_outcome_labels
+    description: "Controlled episode overlap with the seven-day window starting on prediction_date; one row per eligible user-week."
+    columns:
+      - name: user_id
+        data_tests:
+          - not_null
+      - name: prediction_date
+        data_tests:
+          - not_null
+      - name: abuse_next_7d
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+              quote: false
+
+
+  - name: user_modeling_dataset
+    description: "Historical features joined to controlled outcome labels and fixed temporal splits. IDs, dates, label, and split are not predictors."
+    columns:
+      - name: user_id
+        data_tests:
+          - not_null
+      - name: prediction_date
+        data_tests:
+          - not_null
+      - name: abuse_next_7d
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+              quote: false
+      - name: dataset_split
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: [train, validation, test]
